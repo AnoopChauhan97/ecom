@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestingApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <script src="jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="popper.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="owl-carousel.js"></script>
+    <script src="accordions.js"></script>
+    <script src="datepicker.js"></script>
+    <script src="scrollreveal.min.js"></script>
+    <script src="waypoints.min.js"></script>
+    <script src="jquery.counterup.min.js"></script>
+    <script src="imgfix.min.js"></script> 
+    <script src="slick.js"></script> 
+    <script src="lightbox.js"></script> 
+    <script src="isotope.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="custom.js"></script>
+  </head>
+
+  <body>
+  <%=render partial: "partials/navbar"%>
+    <%= yield %>
+  <%=render partial: "partials/footer"%>
+  </body>
+</html>
