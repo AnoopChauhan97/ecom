@@ -1,0 +1,131 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px; cursor: pointer;" id="user_avatar">
+            <h5 class="my-3">John Smith</h5>
+            <p class="text-muted mb-1"><%=current_user.email%></p>
+            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-dark" id="update_profile">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">First Name</p>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" id="firstname" class="form-control">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Last Name</p>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" id="lastname" class="form-control">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" id="phone" class="form-control">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-4">Country</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <select id="countrypicker"
+                                data-live-search="true"
+                                data-default="India"
+                                class="form-select form-select-sm">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-4">State</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <select id="state_selector"
+                                class="form-select form-select-sm">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-4">ZIP Code</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-4">House/Flat no.</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-4">Area/Street no.</p>
+                    </div>
+                    <div class="col-sm-8">  
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+                
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Profile Image</p>
+              </div>
+              <div class="col-sm-9">
+                <input class="form-control" type="file" id="formFile">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+    $("#countrypicker").on("change", function(){
+        country_code = $(this).find(':selected').data("country-code").toLowerCase();
+        $.ajax({
+            url: "/get_states",
+            type: "get",
+            data: {
+                country_code: country_code
+            },
+            success: function(response){
+                console.log(response)
+            }
+        })
+    })
+</script>

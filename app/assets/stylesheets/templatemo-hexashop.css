@@ -235,7 +235,7 @@ header
   border-bottom: 3px dotted #eee;
   box-shadow: none;
   background-color: #fff;
-  position: absolute;
+  /* position: absolute; */
   top: 0px;
   left: 0px;
   right: 0px;
